@@ -1,0 +1,161 @@
+STDOUT:
+Manim Community v0.19.0
+
+[03/27/25 19:28:16] INFO     Writing \begin{bmatrix} 2   tex_file_writing.py:111
+                             \\ 1 \end{bmatrix} to                              
+                             media/Tex/0edfcdc71a6cf86c.                        
+                             tex                                                
+[03/27/25 19:28:17] INFO     Animation 0 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/1185818338_                         
+                             2872842549_1407907435.mp4'                         
+                    INFO     Writing \begin{bmatrix} 5   tex_file_writing.py:111
+                             \\ 3 \end{bmatrix} to                              
+                             media/Tex/3153e329aa088ff1.                        
+                             tex                                                
+                    INFO     Animation 1 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             650114319_1605867895.mp4'                          
+                    INFO     Animation 2 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_4                         
+                             217992463_3412396418.mp4'                          
+[03/27/25 19:28:18] INFO     Animation 3 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_3                         
+                             190168272_2905456297.mp4'                          
+                    INFO     Animation 4 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             844360058_523570644.mp4'                           
+                    INFO     Animation 5 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             396752865_3455565520.mp4'                          
+                    INFO     Animation 6 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             844360058_1111876726.mp4'                          
+[03/27/25 19:28:19] INFO     Animation 7 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             270691400_736870994.mp4'                           
+                    INFO     Animation 8 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             844360058_853061364.mp4'                           
+                    INFO     Writing Scaling \& Shearing tex_file_writing.py:111
+                             to                                                 
+                             media/Tex/9e5bb67c4bbb7e30.                        
+                             tex                                                
+[03/27/25 19:28:20] INFO     Animation 9 : Partial      scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_7                         
+                             32384030_2477245985.mp4'                           
+                    INFO     Animation 10 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             552855209_1417231499.mp4'                          
+                    INFO     Animation 11 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_1                         
+                             70367696_3732706342.mp4'                           
+                    INFO     Writing Linear \,           tex_file_writing.py:111
+                             Transformation to                                  
+                             media/Tex/d8f30a4a03f1c1ef.                        
+                             tex                                                
+[03/27/25 19:28:21] INFO     Animation 12 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_1                         
+                             211512025_2195351583.mp4'                          
+[03/27/25 19:28:22] INFO     Animation 13 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_2                         
+                             552855209_2318089912.mp4'                          
+                    INFO     Animation 14 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_3                         
+                             020692602_2255720578.mp4'                          
+                    INFO     Animation 15 : Partial     scene_file_writer.py:588
+                             movie file written in                              
+                             '/manim/media/videos/scrip                         
+                             t/480p15/partial_movie_fil                         
+                             es/CustomScene/624642324_4                         
+                             217992463_1261071897.mp4'                          
+                    INFO     Combining to Movie file.   scene_file_writer.py:739
+                    INFO                                scene_file_writer.py:886
+                             File ready at                                      
+                             '/manim/media/videos/scrip                         
+                             t/480p15/CustomScene.mp4'                          
+                                                                                
+                    INFO     The partial movie          scene_file_writer.py:856
+                             directory is full (> 100                           
+                             files). Therefore, manim                           
+                             has removed the 17 oldest                          
+                             file(s). You can change                            
+                             this behaviour by changing                         
+                             max_files_cached in                                
+                             config.                                            
+                    INFO     Rendered CustomScene                   scene.py:255
+                             Played 16 animations                               
+
+STDERR:
+
+Animation 1: Create(Arrow):   0%|          | 0/15 [00:00<?, ?it/s]
+                                                                  
+
+Animation 3: FadeOut(Arrow):   0%|          | 0/15 [00:00<?, ?it/s]
+                                                                   
+
+Animation 5: FadeIn(NumberPlane of 4 submobjects):   0%|          | 0/15 [00:00<?, ?it/s]
+                                                                                         
+
+Animation 7: FadeOut(NumberPlane of 4 submobjects):   0%|          | 0/15 [00:00<?, ?it/s]
+                                                                                          
+
+Animation 9: Create(MathTex('Scaling \\& Shearing')):   0%|          | 0/15 [00:00<?, ?it/s]
+                                                                                            
+
+Animation 11: FadeOut(MathTex('Scaling \\& Shearing')):   0%|          | 0/15 [00:00<?, ?it/s]
+Animation 11: FadeOut(MathTex('Scaling \\& Shearing')):  80%|████████  | 12/15 [00:00<00:00, 118.49it/s]
+                                                                                                        
+
+Animation 12: Create(MathTex('Linear \\, Transformation')):   0%|          | 0/15 [00:00<?, ?it/s]
+Animation 12: Create(MathTex('Linear \\, Transformation')): 100%|██████████| 15/15 [00:00<00:00, 144.54it/s]
+                                                                                                            
+
+Animation 14: FadeOut(MathTex('Linear \\, Transformation')):   0%|          | 0/15 [00:00<?, ?it/s]
+Animation 14: FadeOut(MathTex('Linear \\, Transformation')):  73%|███████▎  | 11/15 [00:00<00:00, 107.29it/s]
+                                                                                                             
+
