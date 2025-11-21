@@ -64,6 +64,10 @@ ANIMATION GUIDELINES:
 - Always add `self.wait(1)` after a sequence of animations
 - Always create copies of objects (using `.copy()`) before transforming them
 - Create new objects for any transformed state instead of modifying an existing object
+- Create robust animations like 3blow1brown channel
+- Use `self.play()` for all animations
+- Use `self.wait()` to pause between animations
+- Use `self.remove()` to remove objects from the scene to avoid clutter
 
 RETURN FORMAT:
 Only return the plain Python code, with no Markdown formatting or additional comments.

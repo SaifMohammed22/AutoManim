@@ -4,81 +4,103 @@ class CustomScene(Scene):
     def construct(self):
         self.camera.background_color = BLACK
 
-        circle = Circle(radius=2, color=WHITE)
-        self.play(Create(circle))
-        self.wait(1)
-
-        axes = Axes(
-            x_range=[-3, 3, 1],
-            y_range=[-3, 3, 1],
-            x_axis_config={"numbers_to_include": [-2, -1, 1, 2]},
-            y_axis_config={"numbers_to_include": [-2, -1, 1, 2]},
+        # Define the grid
+        grid = NumberPlane(
+            x_range=[-5, 5, 1],
+            y_range=[-5, 5, 1],
+            x_length=10,
+            y_length=10
         )
-        self.play(FadeIn(axes))
+        grid.set(stroke_color=WHITE, stroke_width=0.5)
+
+        # Define the vector
+        vector = Arrow(
+            start=np.array([0, 0, 0]),
+            end=np.array([2, 1, 0]),
+            buff=0
+        )
+        vector.set(fill_color=YELLOW, stroke_color=YELLOW)
+
+        # Define the transformation matrix
+        matrix = [[1, 1], [0, 1]]  # Shear transformation
+
+        # Create the transformed vector
+        transformed_vector_end = np.array([
+            matrix[0][0] * 2 + matrix[0][1] * 1,
+            matrix[1][0] * 2 + matrix[1][1] * 1,
+            0
+        ])
+        transformed_vector = Arrow(
+            start=np.array([0, 0, 0]),
+            end=transformed_vector_end,
+            buff=0
+        )
+        transformed_vector.set(fill_color=RED, stroke_color=RED)
+
+        # Create the transformed grid
+        transformed_grid = NumberPlane(
+            x_range=[-5, 5, 1],
+            y_range=[-5, 5, 1],
+            x_length=10,
+            y_length=10
+        )
+
+        for i in range(-5,6):
+            for j in range(-5,6):
+                original_point = np.array([i, j, 0])
+                transformed_point = np.array([
+                    matrix[0][0] * i + matrix[0][1] * j,
+                    matrix[1][0] * i + matrix[1][1] * j,
+                    0
+                ])
+                transformed_grid.coords_to_point(i,j)
+                transformed_grid.coords_to_point(transformed_point[0], transformed_point[1])
+
+        transformed_grid.set(stroke_color=BLUE, stroke_width=0.5)
+
+
+        # Show the original grid and vector
+        self.play(Create(grid))
+        self.play(Create(vector))
         self.wait(1)
 
-        radius = Line(np.array([0, 0, 0]), np.array([2, 0, 0]), color=YELLOW)
-        radius_label = MathTex("r", color=YELLOW).move_to(radius.get_center() + np.array([0.3, 0, 0]))
-        self.play(Create(radius), FadeIn(radius_label))
+        # Transform the grid and vector
+        self.play(
+            ReplacementTransform(grid.copy(), transformed_grid),
+            ReplacementTransform(vector.copy(), transformed_vector)
+        )
         self.wait(1)
 
-        dot = Dot(np.array([2, 0, 0]), color=RED)
-        self.play(Create(dot))
+        # Display the transformation matrix
+        matrix_text = MathTex(
+            "\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}"
+        )
+        matrix_text.move_to(np.array([3, 3, 0]))
+        matrix_text.set(fill_color=GREEN)
+
+        self.play(FadeIn(matrix_text))
+        self.wait(3)
+
+        # Show the effect of the transformation
+        text1 = Tex("Shear Transformation", color=ORANGE)
+        text1.move_to(np.array([0, 3.5, 0]))
+        self.play(FadeIn(text1))
+        self.wait(3)
+
+        text2 = MathTex("\\vec{v} = \\begin{bmatrix} 2 \\\\ 1 \\end{bmatrix}")
+        text2.move_to(np.array([3,-3,0]))
+        text2.set(fill_color=YELLOW)
+        self.play(FadeIn(text2))
+        self.wait(2)
+
+        text3 = MathTex("A\\vec{v} = \\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix} \\begin{bmatrix} 2 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 3 \\\\ 1 \\end{bmatrix}")
+        text3.move_to(np.array([-3,-3,0]))
+        text3.set(fill_color=RED)
+        self.play(FadeIn(text3))
+        self.wait(3)
+
+        # Clean up
+        self.play(FadeOut(text1), FadeOut(text2), FadeOut(text3), FadeOut(matrix_text))
         self.wait(1)
-
-        angle = Arc(radius=2, start_angle=0, angle=PI/4, color=GREEN)
-        angle_label = MathTex("\\theta", color=GREEN).move_to(angle.point_from_proportion(0.5) + np.array([0.3, 0.2, 0]))
-        self.play(Create(angle), FadeIn(angle_label))
-        self.wait(1)
-
-        new_x = 2 * np.cos(PI/4)
-        new_y = 2 * np.sin(PI/4)
-
-        new_dot = Dot(np.array([new_x, new_y, 0]), color=RED)
-        new_radius = Line(np.array([0, 0, 0]), np.array([new_x, new_y, 0]), color=YELLOW)
-
-        self.play(ReplacementTransform(dot.copy(), new_dot), ReplacementTransform(radius.copy(), new_radius))
-        self.wait(1)
-
-        x_line = Line(np.array([new_x, new_y, 0]), np.array([new_x, 0, 0]), color=BLUE)
-        y_line = Line(np.array([new_x, new_y, 0]), np.array([0, new_y, 0]), color=BLUE)
-
-        x_label = MathTex("x", color=BLUE).next_to(x_line, np.array([0, -1, 0]))
-        y_label = MathTex("y", color=BLUE).next_to(y_line, np.array([-1, 0, 0]))
-
-        self.play(Create(x_line), Create(y_line), FadeIn(x_label), FadeIn(y_label))
-        self.wait(1)
-
-        cosine_eq = MathTex("\\cos(\\theta) = \\frac{x}{r}", color=BLUE).to_corner(np.array([1, 1, 0]))
-        sine_eq = MathTex("\\sin(\\theta) = \\frac{y}{r}", color=BLUE).next_to(cosine_eq, np.array([0, -1, 0]), aligned_edge=np.array([1, 0, 0]))
-
-        self.play(FadeIn(cosine_eq), FadeIn(sine_eq))
-        self.wait(1)
-
-        group = VGroup(circle, axes, new_radius, new_dot, angle, angle_label, x_line, y_line, x_label, y_label, cosine_eq, sine_eq, radius_label)
-
-        self.play(group.animate.scale(0.5).move_to(np.array([0, 0, 0])))
-        self.wait(1)
-
-        for i in range(4):
-            theta_val = i * PI/4
-            new_x_i = 2 * np.cos(theta_val)
-            new_y_i = 2 * np.sin(theta_val)
-
-            new_dot_i = Dot(np.array([new_x_i, new_y_i, 0]), color=RED)
-            new_radius_i = Line(np.array([0, 0, 0]), np.array([new_x_i, new_y_i, 0]), color=YELLOW)
-            angle_i = Arc(radius=2, start_angle=0, angle=theta_val, color=GREEN)
-
-            self.play(ReplacementTransform(new_dot.copy(), new_dot_i), ReplacementTransform(new_radius.copy(), new_radius_i), ReplacementTransform(angle.copy(), angle_i))
-            new_dot = new_dot_i
-            new_radius = new_radius_i
-            angle = angle_i
-
-            x_line_i = Line(np.array([new_x_i, new_y_i, 0]), np.array([new_x_i, 0, 0]), color=BLUE)
-            y_line_i = Line(np.array([new_x_i, new_y_i, 0]), np.array([0, new_y_i, 0]), color=BLUE)
-            self.play(ReplacementTransform(x_line.copy(), x_line_i), ReplacementTransform(y_line.copy(), y_line_i))
-            x_line = x_line_i
-            y_line = y_line_i
-            self.wait(1)
 
         self.wait(1)
